@@ -91,7 +91,9 @@ function validateTeamRoles(players, captain, viceCaptain) {
 app.use(express.json())
 
 app.post('/add-team', validateTeam, async (req, res) => {
+
   const errors = validationResult(req);
+  
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
